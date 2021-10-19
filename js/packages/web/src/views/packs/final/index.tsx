@@ -1,96 +1,41 @@
 import React from 'react';
 import { Button, Typography } from 'antd';
 
-import { ArtContent } from '../../../components/ArtContent';
+import Item from './item';
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 function FinalStep({ attributes, backButton }) {
   const voucher = attributes.vouchersItems[0];
   const packValues = attributes.initPackValues;
 
-  const renderItem = (item, type) => {
-    const id = item.metadata.pubkey;
-    const { name, uri } = item.metadata?.info?.data;
-    const cardCounts = type === 'card' ? attributes.cardsCount.find(card => card[id])[id] : null;
-
-    return (
-      <div
-        style={{
-          paddingBottom: 40,
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          <Title level={5} style={{ color: 'white' }}>Name: {name}</Title>
-          {
-            cardCounts && (
-              <>
-                <Text>Count: {cardCounts?.count || 0}</Text>
-                <Text>MaxSupply: {cardCounts?.maxSupply || 0}</Text>
-                <Text>Probability: {cardCounts?.probability || 0}</Text>
-              </>
-            )
-          }
-        </div>
-
-        <ArtContent
-          pubkey={id}
-          uri={uri}
-          style={{
-            width: '150px',
-            height: '150px',
-            justifyContent: 'start',
-          }}
-        />
-      </div>
-    )
-  }
-
   return (
     <div className="form-box">
       <div>
-        <Title level={3} style={{ color: 'white' }}>Pack: </Title>
+        <Title level={3}>Pack: </Title>
         {
           packValues && (
-            <div
-              style={{
-                paddingBottom: 40,
-                display: 'flex',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <Title level={5} style={{ color: 'white' }}>
+            <div className="pack-wrapper">
+              <div className="pack-values">
+                <Title level={5}>
                   Name: {packValues.name}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Distribution Type: {packValues.distributionType}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Poster URL: {packValues.uri}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Allowed Amount To Redeem: {packValues.allowedAmountToRedeem}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Redeem Start Date: {packValues.redeemStartDate || 'Unselected'}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Redeem End Date: {packValues.redeemEndDate  || 'Unselected'}
                 </Title>
-                <Title level={5} style={{ color: 'white' }}>
+                <Title level={5}>
                   Mutable: {packValues.mutable ? 'yes' : 'no'}
                 </Title>
               </div>
@@ -98,17 +43,13 @@ function FinalStep({ attributes, backButton }) {
           )
         }
 
-        <Title level={3} style={{ color: 'white' }}>Voucher: </Title>
+        <Title level={3}>Voucher: </Title>
         {
-          voucher && renderItem(voucher, 'voucher')
+          voucher && Item(voucher, 'voucher', attributes)
         }
 
-        <Title level={3} style={{ color: 'white' }}>Cards: </Title>
-        {
-          attributes.cardsItems.length > 0 && (
-            attributes.cardsItems.map((card) => renderItem(card, 'card'))
-          )
-        }
+        <Title level={3}>Cards: </Title>
+        {attributes.cardsItems?.map((card) => Item(card, 'card', attributes))}
       </div>
       <div style={{ display: "flex" }}>
         <Button type="primary" htmlType="submit">
