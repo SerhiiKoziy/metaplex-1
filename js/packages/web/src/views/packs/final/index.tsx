@@ -34,6 +34,7 @@ function FinalStep({ attributes, backButton }) {
               <>
                 <Text>Count: {cardCounts?.count || 0}</Text>
                 <Text>MaxSupply: {cardCounts?.maxSupply || 0}</Text>
+                <Text>Probability: {cardCounts?.probability || 0}</Text>
               </>
             )
           }
