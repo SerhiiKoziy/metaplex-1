@@ -3,6 +3,14 @@ import { Row, Col, Typography } from 'antd';
 
 const { Text } = Typography;
 
+const Card = ({ value }) => (
+  <div key={value} className="pack-view__block">
+    <div className="pack-view__square">
+      <span>{ value === 0 ? '?' : value + 1}</span>
+    </div>
+  </div>
+)
+
 export const PackView = () => {
   const mockBlocks = Array.from({length: 10}, (v, i) => i);
 
@@ -13,11 +21,7 @@ export const PackView = () => {
           <div className="pack-view__list">
             {
               mockBlocks.map((block, i) => (
-                <div key={i} className="pack-view__block">
-                  <div className="pack-view__square">
-                    <span>{ i === 0 ? '?' : i + 1}</span>
-                  </div>
-                </div>
+                <Card value={i} />
               ))
             }
           </div>
