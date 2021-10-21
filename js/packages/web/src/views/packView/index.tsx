@@ -1,15 +1,7 @@
 import React  from 'react';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col } from 'antd';
 
-const { Text } = Typography;
-
-const Card = ({ value }) => (
-  <div key={value} className="pack-view__block">
-    <div className="pack-view__square">
-      <span>{ value === 0 ? '?' : value + 1}</span>
-    </div>
-  </div>
-)
+import { Card } from './components/Card';
 
 export const PackView = () => {
   const mockBlocks = Array.from({length: 10}, (v, i) => i);
