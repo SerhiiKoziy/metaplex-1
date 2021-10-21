@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 
 import { Card } from './components/Card';
 
-export const PackView = () => {
+const PackView = () => {
   const mockBlocks = Array.from({length: 10}, (v, i) => i);
 
   return (
@@ -31,4 +31,6 @@ export const PackView = () => {
     </div>
   );
 };
+
+export default PackView
 
