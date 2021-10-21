@@ -32,7 +32,7 @@
 
       font-size: 48px;
       font-weight: bold;
-      font-family: @fontFamily;
+      font-family: @fontFamilyInter;
       color: @blockColor;
     }
   }
@@ -52,7 +52,157 @@
       font-weight: bold;
       margin-bottom: 50px;
       color: white;
-      font-family: @fontFamily;
+      font-family: @fontFamilyInter;
+    }
+  }
+
+  &__title {
+    color: @secondColor;
+    font-family: @fontFamilyGraphik;
+  }
+
+  &__description-block {
+    margin: 40px 0;
+  }
+
+  &__info {
+    display: flex;
+
+    .info-item {
+      padding: 0 24px;
+      border-left: 1px solid @blockColor;
+
+      p {
+        font-size: 14px;
+        margin: 0 0 16px 0;
+        color: @secondColor;
+
+        &.info-count {
+          font-weight: bold;
+          color: white;
+
+          span {
+            color: @secondColor;
+          }
+        }
+      }
+
+      &:first-child {
+        padding-left: 0;
+        border: none;
+      }
+    }
+  }
+
+  &__artists {
+    display: flex;
+    margin: 20px 0;
+
+    .artist {
+      display: flex;
+      align-items: center;
+      height: 60px;
+
+      &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 36px;
+        width: 36px;
+
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          background: @secondColor;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding: 0 0 0 16px;
+
+        font-size: 16px;
+        font-family: @fontFamilyGraphik;
+        color: white;
+      }
+    }
+  }
+
+  &__summery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: @greyColor;
+    border-radius: 12px;
+    padding: 24px;
+
+    .price {
+      display: flex;
+      flex-direction: column;
+
+      &>p {
+        margin: 0 0 5px 0;
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      &__info {
+        display: flex;
+        align-items: center;
+
+        p {
+          margin: 0 0 0 8px;
+          color: white;
+          font-size: 14px;
+
+          &.info-sol {
+            font-weight: bold;
+            font-size: 24px;
+            font-family: @fontFamilyInter;
+          }
+        }
+
+
+      }
+
+      &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 32px;
+        width: 32px;
+
+        border-radius: 50%;
+        overflow: hidden;
+        background: @secondWhiteColor;
+      }
+    }
+  }
+
+  &__buy-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    outline: none;
+    background: @greenColor;
+    border-radius: 8px;
+    border: none;
+    height: 56px;
+
+    span {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: @fontFamilyGraphik;
+      color: @blackColor;
+      padding: 0 20px;
     }
   }
 }
