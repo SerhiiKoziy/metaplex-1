@@ -2,6 +2,7 @@ import React  from 'react';
 import { Row, Col } from 'antd';
 
 import { Card } from './components/Card';
+import { PackSidebar } from './components/PackSidebar';
 
 const PackView = () => {
   const mockBlocks = Array.from({length: 10}, (v, i) => i);
@@ -19,15 +20,9 @@ const PackView = () => {
           </div>
         </Col>
         <Col md={8} >
-          <div className="pack-view__sidebar">
-            <h4>Morning</h4>
-            <div>
-
-            </div>
-          </div>
+          <PackSidebar />
         </Col>
       </Row>
-
     </div>
   );
 };
