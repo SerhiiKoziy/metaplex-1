@@ -47,7 +47,7 @@ const PackSidebar = () => (
       </div>
     </div>
 
-    <div className="pack-view__summery">
+    <div className="pack-view__summary">
       <div className="price">
         <p className="pack-view__title">ARTISTS</p>
         <div className="price__info">
