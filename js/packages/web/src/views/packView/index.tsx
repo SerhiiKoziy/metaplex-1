@@ -1,10 +1,12 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import { Row, Col } from 'antd';
 
-import { Card } from './components/Card';
-import { PackSidebar } from './components/PackSidebar';
+import Card from './components/Card';
+import RedeemModal from "./components/RedeemModal";
+import PackSidebar from './components/PackSidebar';
 
 const PackView = () => {
+  const [ openModal, setOpenModal ] = useState(true);
   const mockBlocks = Array.from({length: 10}, (v, i) => i);
 
   return (
@@ -14,7 +16,7 @@ const PackView = () => {
           <div className="pack-view__list">
             {
               mockBlocks.map((block, i) => (
-                <Card value={i} />
+                <Card value={i} onOpen={setOpenModal}/>
               ))
             }
           </div>
@@ -23,6 +25,11 @@ const PackView = () => {
           <PackSidebar />
         </Col>
       </Row>
+
+      <RedeemModal
+        isModalVisible={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </div>
   );
 };
