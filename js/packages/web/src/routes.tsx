@@ -12,6 +12,7 @@ import {
   HomeView,
   StaticPageView,
   PackView,
+  MyPacks,
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -45,6 +46,11 @@ export function Routes() {
               exact
               path="/pack/:id?"
               component={() => <PackView />}
+            />
+            <Route
+              exact
+              path="/packs"
+              component={() => <MyPacks />}
             />
             <Route
               exact

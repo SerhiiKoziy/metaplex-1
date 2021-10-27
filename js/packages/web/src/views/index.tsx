@@ -9,3 +9,4 @@ export { ArtworksView } from './artworks';
 export { AnalyticsView } from './analytics';
 export { StaticPageView } from './staticPage';
 export { PackView } from './packView';
+export { MyPacks } from './myPacks';
